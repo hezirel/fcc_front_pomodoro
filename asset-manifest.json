@@ -1,13 +1,13 @@
 {
   "files": {
     "main.css": "/fcc_front_pomodoro/static/css/main.27375611.css",
-    "main.js": "/fcc_front_pomodoro/static/js/main.63abc5ef.js",
+    "main.js": "/fcc_front_pomodoro/static/js/main.752f7e44.js",
     "index.html": "/fcc_front_pomodoro/index.html",
     "main.27375611.css.map": "/fcc_front_pomodoro/static/css/main.27375611.css.map",
-    "main.63abc5ef.js.map": "/fcc_front_pomodoro/static/js/main.63abc5ef.js.map"
+    "main.752f7e44.js.map": "/fcc_front_pomodoro/static/js/main.752f7e44.js.map"
   },
   "entrypoints": [
     "static/css/main.27375611.css",
-    "static/js/main.63abc5ef.js"
+    "static/js/main.752f7e44.js"
   ]
 }
