@@ -67,6 +67,7 @@ function Clock() {
 				<button id="start_stop" onClick={() => dispatch(toggleStartStop())}>Start timer</button>
 				<button id="reset" onClick={() => dispatch(reset())}>Reset</button>
 			</div>
+			<audio id="beep" src="https://actions.google.com/sounds/v1/alarms/alarm_clock.ogg" className="clip"/>
 		</div>
 	);
 }

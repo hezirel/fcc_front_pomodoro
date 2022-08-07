@@ -35,7 +35,10 @@ const clockSlice = createSlice({
 			if (state.currentState === "running") {
 				if (state.timer) {
 					state.timer--;
-					state.timer ? document.querySelector("#beep").play() : false;
+					if (!state.timer) {
+						const p = document.querySelector("#beep");
+						p.play();
+					}
 				} else {
 					state.timer = state.mode === "session" ? state.break * 60 : state.session * 60;
 					state.mode = state.mode === "session" ? "break" : "session";
