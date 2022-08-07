@@ -12,8 +12,8 @@ import {
 } from "react-router-dom";
 
 import {
-	createRoot
-} from "react-dom/client";
+	render
+} from "react-dom";
 
 import { 
 	store
@@ -24,9 +24,7 @@ import Clock from "./components/app/clock/Clock";
 import "./index.css";
 
 const container = document.getElementById("root");
-const root = createRoot(container);
-
-root.render(
+const node = (
 	<React.StrictMode>
 		<HashRouter>
 			<Provider store={store}>
@@ -38,3 +36,5 @@ root.render(
 		</HashRouter>
 	</React.StrictMode>
 );
+
+render(node, container);

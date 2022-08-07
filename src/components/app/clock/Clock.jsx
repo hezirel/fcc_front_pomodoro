@@ -28,10 +28,10 @@ function Clock() {
 	const running = useSelector(state => state.clock.currentState === "running");
 	const mode = useSelector(state => state.clock.mode);
 	const handleBreak = (e) => {
-		dispatch(setBreak(e.target.innerText === "-" ? breakLength - 4 : breakLength + 4));
+		dispatch(setBreak(e.target.innerText === "-" ? breakLength - 1 : breakLength + 1));
 	};
 	const handleSession = (e) => {
-		dispatch(setSession(e.target.innerText === "-" ? sessionLength - 35 : sessionLength + 35));
+		dispatch(setSession(e.target.innerText === "-" ? sessionLength - 1 : sessionLength + 1));
 	};
 
 	useEffect(() => {
@@ -60,7 +60,7 @@ function Clock() {
 				<button id="session-increment" onClick={handleSession}>+</button>
 			</div>
 			<div id="timer">
-				<div id="timer-label">{mode} Length</div>
+				<div id="timer-label">{mode} timer</div>
 				<div id="time-left">{(timer < 600 ? "0" : "") + (Math.floor(timer / 60)) + ":" + ((timer % 60) < 10 ? "0" + (timer % 60) : (timer % 60))}</div>
 			</div>
 			<div id="controls">

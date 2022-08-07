@@ -36,6 +36,7 @@ const clockSlice = createSlice({
 				if (state.timer) {
 					state.timer--;
 				} else {
+					
 					state.timer = state.mode === "session" ? state.break * 60 : state.session * 60;
 					state.mode = state.mode === "session" ? "break" : "session";
 					state.currentState = "running";
