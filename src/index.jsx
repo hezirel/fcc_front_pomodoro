@@ -19,7 +19,7 @@ import {
 	store
 } from "./redux/store/store";
 
-import Clock from "./components/app/clock/clock";
+import Clock from "./components/app/clock/Clock";
 
 import "./index.css";
 

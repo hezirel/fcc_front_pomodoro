@@ -10,5 +10,5 @@ code {
 #root {
   display: grid;
   grid-template-rows: 1fr;
-  height: 100vh;
+  height: 40vh;
 }
