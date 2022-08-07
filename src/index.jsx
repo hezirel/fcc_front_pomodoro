@@ -29,7 +29,6 @@ const root = createRoot(container);
 root.render(
 	<React.StrictMode>
 		<HashRouter>
-			<Header />
 			<Provider store={store}>
 				<Routes>
 					<Route path="/" element={<Clock />} />
