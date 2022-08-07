@@ -20,7 +20,7 @@ function Clock() {
 	const breakLength = useSelector(state => state.clock.break);
 	const sessionLength = useSelector(state => state.clock.session);
 	const handleBreak = (e) => {
-		dispatch(setBreak(e.target.value === "-" ? breakLength - 1 : breakLength + 1));
+		dispatch(setBreak(e.target.innerText === "-" ? breakLength - 1 : breakLength + 1));
 	};
 
 	return (
