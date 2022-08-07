@@ -26,21 +26,22 @@ function Clock() {
 	const sessionLength = useSelector(state => state.clock.session);
 	const timer = useSelector(state => state.clock.timer);
 	const running = useSelector(state => state.clock.currentState === "running");
+	const mode = useSelector(state => state.clock.mode);
 	const handleBreak = (e) => {
-		dispatch(setBreak(e.target.innerText === "-" ? breakLength - 1 : breakLength + 1));
+		dispatch(setBreak(e.target.innerText === "-" ? breakLength - 4 : breakLength + 4));
 	};
 	const handleSession = (e) => {
-		dispatch(setSession(e.target.innerText === "-" ? sessionLength - 1 : sessionLength + 1));
+		dispatch(setSession(e.target.innerText === "-" ? sessionLength - 35 : sessionLength + 35));
 	};
 
 	useEffect(() => {
-		let ticker = null;
 		if (running) {
-			ticker = setInterval(() => {
+			const interval = setInterval(() => {
 				dispatch(tick());
 			} , 1000);
+			timer ? false : clearInterval(interval);
+			return () => clearInterval(interval);
 		}
-		clearInterval(ticker);
 	} , [running]);
 
 
@@ -59,8 +60,8 @@ function Clock() {
 				<button id="session-increment" onClick={handleSession}>+</button>
 			</div>
 			<div id="timer">
-				<div id="timer-label">Timer Length</div>
-				<div id="time-left">{(Math.floor(timer / 60)) + ":" + ((timer % 60) < 10 ? "0" + (timer % 60) : (timer % 60))}</div>
+				<div id="timer-label">{mode} Length</div>
+				<div id="time-left">{(timer < 600 ? "0" : "") + (Math.floor(timer / 60)) + ":" + ((timer % 60) < 10 ? "0" + (timer % 60) : (timer % 60))}</div>
 			</div>
 			<div id="controls">
 				<button id="start_stop" onClick={() => dispatch(toggleStartStop())}>Start timer</button>

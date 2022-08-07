@@ -5,8 +5,9 @@ import {
 const initialState = {
 	break: 5,
 	session: 25,
-	timer: 1 * 60,
+	timer: 25*60,
 	currentState: "paused",
+	mode: "session"
 };
 
 const lengthCheck = x => x >= 1 && x <= 60;
@@ -32,10 +33,16 @@ const clockSlice = createSlice({
 		},
 		tick: (state) => {
 			if (state.currentState === "running") {
-				state.timer > 0 ? state.timer-- : false;
+				if (state.timer) {
+					state.timer--;
+				} else {
+					state.timer = state.mode === "session" ? state.break * 60 : state.session * 60;
+					state.mode = state.mode === "session" ? "break" : "session";
+					state.currentState = "running";
+				}
 			}
 		}
-	},
+	}
 });
 
 export const { 
