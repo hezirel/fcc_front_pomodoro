@@ -27,7 +27,12 @@ const clockSlice = createSlice({
 				state.timer = payload * 60;
 			}
 		},
-		reset: () => initialState,
+		reset: () => {
+			const p = document.querySelector("#beep");
+			p.pause();
+			p.currentTime = 0;
+			return initialState;
+		},
 		toggleStartStop: (state) => {
 			state.currentState === "paused" ? state.currentState = "running" : state.currentState = "paused";
 		},
