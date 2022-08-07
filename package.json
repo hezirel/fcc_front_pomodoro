@@ -1,7 +1,7 @@
 {
   "name": "clock",
   "version": "0.1.0",
-  "homepage": "http://hezirel.github.io/fccfront_clock",
+  "homepage": "http://hezirel.github.io/fcc_front_pomodoro",
   "private": true,
   "dependencies": {
     "@reduxjs/toolkit": "^1.8.2",
